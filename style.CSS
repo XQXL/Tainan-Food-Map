@@ -1,0 +1,180 @@
+/* 基礎設定與變數 */
+:root {
+    --primary-color: #d32f2f;
+    --bg-color: #f9f9f9;
+    --text-color: #333;
+}
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: "Helvetica Neue", Arial, "LiHei Pro", sans-serif;
+}
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
+/* 導覽列 */
+header {
+    background-color: white;
+    padding: 15px 20px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+header h1 {
+    color: var(--primary-color);
+    font-size: 1.5rem;
+}
+
+/* 首屏視覺 (Hero Section) */
+.hero {
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1552611052-33e04de081de?auto=format&fit=crop&w=1200&q=80') center/cover;
+    height: 40vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+}
+.hero h2 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+/* 分類按鈕 (Filter Options) */
+.filter-container {
+    text-align: center;
+    padding: 20px;
+    margin-top: 20px;
+}
+.filter-btn {
+    background-color: white;
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color);
+    padding: 8px 16px;
+    margin: 5px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: 0.3s;
+}
+.filter-btn.active, .filter-btn:hover {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+/* 卡片網格排版 (RWD 核心) */
+.food-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* 平板版：2欄 */
+@media (min-width: 768px) {
+    .food-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* 電腦版：3欄 */
+@media (min-width: 1024px) {
+    .food-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* 單一卡片樣式 */
+.card {
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+    display: flex;
+    flex-direction: column;
+}
+.card:hover {
+    transform: translateY(-5px);
+}
+.card-img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    background-color: #ddd;
+}
+.card-content {
+    padding: 15px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+.card-title {
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+    color: var(--primary-color);
+}
+.card-desc {
+    font-size: 0.95rem;
+    color: #666;
+    margin-bottom: 15px;
+    flex-grow: 1;
+}
+.card-btn {
+    display: block;
+    text-align: center;
+    background-color: var(--primary-color);
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+/* 用於 JavaScript 過濾隱藏的類別 */
+.hidden {
+    display: none;
+}
+/* =========================================
+   語言切換邏輯與樣式
+   ========================================= */
+
+/* 1. 預設隱藏英文內容 */
+.en {
+    display: none;
+}
+
+/* 2. 當 body 擁有 english-mode 類別時，隱藏中文，顯示英文 */
+body.english-mode .tw {
+    display: none;
+}
+
+body.english-mode .en {
+    display: inline; /* 讓文字正常顯示 */
+}
+
+/* 3. 語言切換按鈕的美化設定 */
+.lang-btn {
+    background-color: var(--primary-color);
+    color: white;
+    border: 2px solid white;
+    padding: 8px 16px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: 0.3s;
+}
+
+.lang-btn:hover {
+    background-color: white;
+    color: var(--primary-color);
+}
