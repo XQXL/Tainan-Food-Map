@@ -1,2 +1,2 @@
 # Tainan-Food-Map
-Introduce Tainan food and map
+Introduce Tainan food and link to Google map
